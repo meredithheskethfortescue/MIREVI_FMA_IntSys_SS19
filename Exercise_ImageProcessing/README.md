@@ -2,17 +2,16 @@
 
 ## Exposition for prettier slides
 
-Original Image             | Exposed Image with transparent background 
-:-------------------------:|:-------------------------:
-![](https://linux.pictures/content/1-projects/39-python-card-jpg/python-card.jpg)  |  ![](python_card_exposed.png)
+                        Original image                        | Exposed image with transparent background 
+ :----------------------------------------------------------: | :---------------------------------------: 
+ ![](https://linux.pictures/content/1-projects/39-python-card-jpg/python-card.jpg) |       ![](python_card_exposed.png)        
 
 ### Step by step
 
 - Load image
-    `io.imread('./filename.jpg')`
+    `io.imread('./filename.jpg', as_gray=True)`
 
 - Convert to grayscale
-    `np.....`
 
 - Generate empty 4-channel array, same size as input image
 
@@ -22,9 +21,17 @@ Original Image             | Exposed Image with transparent background
 
 - Inverted alpha to grayscale of input image
 
-- Save output image
+- (Save output image)
+
+    
 
 ## Discrete 2d-Convolution Filter
+
+| Original image            | Edge detection                          |
+| ------------------------- | --------------------------------------- |
+| ![](ubuntu_card_dark.png) | ![](ubuntu_card_dark_edgedetection.png) |
+
+
 
 ![](https://i.stack.imgur.com/vxEa3.jpg)
 

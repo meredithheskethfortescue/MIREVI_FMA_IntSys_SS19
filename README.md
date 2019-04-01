@@ -176,7 +176,7 @@ print(my_tuple[1:3]) # prints ('bar', 'baz')
 # dictionarys are unsorted sets. They link a key to a value.
 my_dict = {'pi': 3.14,
            'e': 2.71}
-my_dict['sqrt 2'] = 1.41  # add a new entry to the dictionary
+my_dict['sqrt_2'] = 1.41  # add a new entry to the dictionary
 print(my_dict['pi'])  # get a dictionary's entry by it's key
 ```
 
@@ -222,7 +222,7 @@ while x <= 42 or x == 4711:
 my_list = [2, 4, 6, 8]
 for it in my_list:
     print(it)
-
+    
 # The 'range' and function can provide such an iterable.
 # 'range(10)' gives 0..9
 for it in range(10):
@@ -266,9 +266,6 @@ print(lst[:-3])  # [0, 1, 2, 3, 4, 5, 6] --> all up to the last three values
 def my_function(a, b):
     sigma = a + b
     return sigma
-
-### Übungsaufgabe
-Erweitern Sie das Programm um eine Funktion *is_primzahl*!
 
 # call function with arguments
 c = my_function(2, 3)

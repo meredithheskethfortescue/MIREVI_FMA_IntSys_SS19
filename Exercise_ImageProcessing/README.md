@@ -2,9 +2,12 @@
 
 ## Exposition for prettier slides
 
-                        Original image                        | Exposed image with transparent background 
- :----------------------------------------------------------: | :---------------------------------------: 
- ![](https://linux.pictures/content/1-projects/39-python-card-jpg/python-card.jpg) |       ![](python_card_exposed.png)        
+| Original image | Exposed image with transparet background    |
+| ------------------------------------------------------------ | ---- |
+| ![](./python_card.jpg) | ![](python_card_exposed.png)      |
+
+
+
 
 ### Step by step
 

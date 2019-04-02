@@ -65,7 +65,7 @@ sudo apt-get install python3.7-dev
     - Linux, Unix, Windows, Android, iOS
     - ARM architecture (e.g. [Raspberry Pi](https://www.raspberrypi.org/), [NVIDIA Jetson](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-nano/), [MicroPython on pyboard](https://micropython.org/))
 - Use case:
-    - De facto standard for Machine Learning, Neural Nets (e.g. [Tensorflow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org/), [Caffee](http://caffe.berkeleyvision.org/))
+    - De facto standard for Machine Learning, Neural Nets (e.g. [Tensorflow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org/), [Caffe](http://caffe.berkeleyvision.org/))
     - Data Mining (Alternative to R)
     - Scientific Computing 
         (Alternative to Matlab by importing `numpy` and `matplotlib`; see [NumPy for Matlab users](https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html))
@@ -173,11 +173,12 @@ print(my_list[0])  # prints the first item of the list: '3.14'
 
 # tuples are like lists, but they are immutable
 my_tuple = ('foo', 'bar', 'baz', 'qux', 'quux', 'corge')
-print(my_tuple[1:3]) # prints ('bar', 'baz')
 
 # dictionarys are unsorted sets. They link a key to a value.
 my_dict = {'pi': 3.14,
-           'e': 2.71}
+           'e': 2.71,
+           'dictionary': 'woerterbuch'}
+print(my_dict['dictionary'])  # prints 'woerterbuch'
 my_dict['sqrt_2'] = 1.41  # add a new entry to the dictionary
 print(my_dict['pi'])  # get a dictionary's entry by it's key
 ```
@@ -214,7 +215,8 @@ elif y == 9:
 else:
     print("I'm in the else-condition!")
 
-    
+
+# todo: xor???
 while x <= 42 or x == 4711:
     print(x)
     x += 1
@@ -324,7 +326,7 @@ class MyClass:
 
 
 # get new instance
-my_instance = MyClass(a, b)
+my_instance = MyClass(2, 5)
 
 # call its functions
 print(my_instance.pythagoras())
@@ -438,6 +440,16 @@ plt.show()
 ```
 
 ### Exercise: Plot Collector
+
+```bash
+# in terminal (in PyCharm)
+pip3 install matplotlib
+```
+
+```python
+# in python script
+import matplotlib.pyplot as plt
+```
 
 1. Erstellen Sie eine Liste mit Werten (Datensatz)
 2. Plotten Sie diesen mit matplotlib

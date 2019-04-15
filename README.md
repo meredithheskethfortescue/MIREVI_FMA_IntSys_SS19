@@ -4,6 +4,8 @@
 
 [TOC]
 
+
+
 ## General FAQ
 
 ### Installation
@@ -29,6 +31,8 @@ sudo apt-get install python3.7-dev
 # This might cause many problems with your OS!
 ```
 
+
+
 #### MAC
 
 [Download Python3](https://www.python.org/downloads/mac-osx/) or get it with *brew*.
@@ -43,7 +47,8 @@ sudo apt-get install python3.7-dev
 | `Ctrl + P`               | Show possible arguments                  |
 | `Ctrl + Space`           | Autocomplete                             |
 | `Ctrl + Alt + L`         | Apply code conventions                   |
-| `Ctrl + 5`               | Run                                      |
+| `Ctrl + Shift + F10`     | Run current opened script                |
+| `Shift + F10`            | Run script                               |
 | `Ctrl + B`               | Go to declaration/implementation         |
 | `Shift + F6`             | Refactoring                              |
 | `Ctrl + D`               | Insert copy of the line to the next line |
@@ -51,13 +56,12 @@ sudo apt-get install python3.7-dev
 
 
 
-### Why Python?
+### What is Python? Why Python?
 
 - Interpreted High-Level Language
-    - Procedural
-    - Object-oriented
-    - Functional
-    - Imperative
+    - Multiple Programming paradigms supported (Procedural, Object-oriented, Functional, Imperative)
+    - Garbage collected
+    - Interpreter has to be installed on target system (No shipped runtime as in Java; No binaries as in C++)
 - 'Pythonic' design philosophy
     - [PEP 20 - The Zen of Python](https://www.python.org/dev/peps/pep-0020/)
     - [PEP 8 - Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/)
@@ -71,6 +75,8 @@ sudo apt-get install python3.7-dev
         (Alternative to Matlab by importing `numpy` and `matplotlib`; see [NumPy for Matlab users](https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html))
     - Web (e.g. Django)
     - Frontend (e.g. Qt, Tkinter)
+
+
 
 ### Python 2.7 and Python 3.x
 
@@ -91,6 +97,7 @@ from __future__ import *
 ```
 
 
+
 ### pip3 (pip installs package)
 
 pip3 ist ein Paketverwaltungsprogramm, mit dem schnell und bequem Python-Bibliotheken per Konsolenbefehl installiert werden können.
@@ -103,6 +110,7 @@ pip3 install numpy
 # if a requirement file is provided by a repository it can be used to install the required packages automatically
 pip3 install -r requirements.txt
 ```
+
 
 
 ### Python Console and Jupyter Notebook
@@ -129,6 +137,8 @@ print("Hello, world!")
 ```
 
 By the way: Python is case sensitive!
+
+
 
 ### Comments
 
@@ -183,6 +193,8 @@ my_dict['sqrt_2'] = 1.41  # add a new entry to the dictionary
 print(my_dict['pi'])  # get a dictionary's entry by it's key
 ```
 
+
+
 ### Operators
 
 ```python
@@ -195,6 +207,7 @@ print(7%3)      # 1             modulo division
 
 i += 1  # increment (i++ is not possible in python)
 ```
+
 
 
 ### Loops and Conditions
@@ -304,11 +317,12 @@ Schreiben Sie ein skript, das...
 
 
 
+
 ### Classes
 
 ```python
 # PEP 8: Class names should normally use the CapWords convention.
-class MyClass:
+class MyClass:    
     def __init__(self, a, b):
         """Constructor"""
         self.a = a
@@ -439,10 +453,12 @@ plt.plot(dataset_1)
 plt.show()
 ```
 
+
+
 ### Exercise: Plot Collector
 
 ```bash
-# in terminal (in PyCharm)
+# in terminal (for Windows use 'pip' instead of 'pip3')
 pip3 install matplotlib
 ```
 
@@ -459,23 +475,84 @@ import matplotlib.pyplot as plt
     3. ...eine Möglichkeit bietet, alle gesammelten Datensätze in einem Plot darzustellen.
     4. ...eine Möglichkeit bietet, die Anzahl der aktuell hinzugefügten Datensätze auszugeben
 
+
+
+
 ### Exercise: Performance Optimization
 
 Sum of multiples of two numbers
 If we list all the natural numbers below 10 that are multiples of 3 or 5
 we get 3, 5, 6 and 9. The sum of these multiples is 23.
 
+Example:
+
+```
+   1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16
+3:       3        6        9       12       15
+4:          4           8          12          16
+gesucht: 3  4     6     8  9       12       15 16
+```
+
 Find the sum of all the multiples of a or b below n.
 When you found your first solution, think again how exactly the described sequence of numbers works.
 Try to find a pattern and how you could design an algorithm to speed up the calculation time.
 
+```python
+# the timeit module can be used to compare the performance of small code snippets
+import timeit
+
+
+def solution_simple(a, b, n):
+    """This is my simple and naive approach to the problem"""
+    pass # <code goes here>
+
+
+if __name__ == '__main__':
+    a = 3
+    b = 5
+    n = 10
+    repetitions = 50
+    
+    # stop time
+    time_simple_approach = timeit.timeit(lambda: solution_simple(a, b, n), 
+                                         number=repetitions) / repetitions
+    print("simple approach", time_simple_approach)
+```
 
 
 
-## Numpy Syntax
 
-Numpy vereint die komfortable Syntax von Python mit der Performanz von C. Es handelt sich um eine in C geschriebene und kompilierte Bibliothek. Kernelement ist die Datenstruktur `ndarray` welche im Hintergrund als C- oder Fortranarrays erzeugt werden.
-Numpy ermöglicht komfortables und schnelles Durchführen numerischer Operationen mit n-dimensionalen Matrizen (ähnlich wie Matlab). Der wesentliche Geschwindigkeitsboost entsteht hier durch das Vermeiden von for-Schleifen. Stattdessen sollten die numpy-internen Funktionen verwendet werden, welche die Operation dann direkt auf das ganze Array anwendet.
+
+## NumPy (Numeric Python)
+
+#### Warum ist NumPy so schnell?
+
+NumPy ist ein Python Paket für numerische Operationen und das Kernelement für Scientific Computing in Python. Der Standarddatentyp hier ist das n-dimensionale `ndarray`. NumPy bietet darüber hinaus diverse Funktionen zur Verarbeitung von Matrizen. Diese sind sehr viel schneller als die Python-internen Standardoperationen und Datentypen. Um einmal ein paar Gründe dafür zu nennen:
+
+1. **Precompiled C**
+    Die meisten Funktionen in NumPy sind in C geschrieben und sind vorcompiliert. Python dagegen wird interpretiert. D.h. der Standardcompiler in Python (CPython) nimmt nur geringfügige Prozessoptimierungen vor, um zur Laufzeit schnell arbeiten zu können. Mit dem C-Compiler dagegen genießt man diesen Vorteil und redundante Operationen werden "wegoptimiert".
+
+2. **Statically typed**
+    Wenn der Python Interpreter auf eine Python-Variable zugreift, weiß er zunächst lediglich, dass es sich um ein Objekt handelt - nicht aber, was für eine Art von Objekt oder wie groß es ist. Das heißt der Interpreter muss erst im Object-Header der Variable nachschauen, dass es sich beispielsweise um einen Integer handelt. Dies kostet Zeit.
+    In NumPy dagegen haben alle Elemente eines Arrays ab der Deklaration den gleichen Datentyp und die Größe des Arrays ist festgelegt. (Sobald das Array verändert werden soll, wird ein neues angelegt und das alte gelöscht.) Somit wird die Abfrage des Typs übersprungen.
+
+3. **Vectorization instead of loops**
+    Grundsätzlich gilt es, Schleifen stets zu vermeiden, wenn man eine hohe Performanz erreichen möchte, weil dabei jedes Element einzeln betrachtet und verarbeitet werden muss. Wenn man aber dieselbe Operation auf mehrere Elemente anwenden will, kann man dagegen sogenannte *Vektorisierung* nutzen. Dabei parallelisiert man die Verarbeitung, indem man beispielsweise SIMD (Single Instruction Multiple Data) Funktionen der CPU nutzt.
+    Dies ist bei der Anwendung von Operationen auf Matrizen der Fall, weshalb das NumPy-Paket auch vektorisiert geschrieben ist. Deshalb kann es große Arrays so schnell verarbeiten.
+
+4. **Locality of reference**
+    Listen in Python sind Arrays von Pointern. Deshalb sind die Daten einer Python List nicht zwangsläufig hintereinander im Speicher abgelegt. NumPy, sowie C-/Fortran-Arrays dagegen allokieren einen Speicherbereich. Dies ist dadurch überhaupt möglich, dass sie einen statischen Datentyp und eine feste Länge haben. Somit ist der erforderliche Speicherbereich für ein Array in NumPy bekannt und die Daten können zusammenhängend im Speicher abgelegt werden. Durch diese [Räumliche Lokalität](https://en.wikipedia.org/wiki/Locality_of_reference) kann auf die Daten schneller zugegriffen werden, als wenn sie unsortiert verteilt wären.
+    Dieser Effekt lässt sich beobachten, wenn man in NumPy eine 2D-Matrix anlegt und die gleiche Operation einmal auf dessen Zeilen und einmal auf dessen Spalten anwendet. In C werden Arrays spaltenweise im Speicher angelegt und in Fortran zeilenweise. NumPy unterstützt beide Möglichkeiten. Mit dem Programm `./numpy_performance.py` dieses Repositorys kann dieser Performanceunterschied beobachtet werden.
+
+    ![](https://jakevdp.github.io/images/array_vs_list.png) 
+
+
+
+##### Fazit
+
+Python-interne Variablen und Operationen sind nicht direkt langsam. Sie sind lediglich die falsche Wahl für die Anwendung numerischer Operationen auf große Datenmengen. 
+
+
 
 ### n-dimensionales Indexing / Slicing mit numpy
 
@@ -504,6 +581,8 @@ print(arr_3d)                 # [[[0. 0. 0. 0.]
 
 ![](./img/anatomyarray_exposed.png)
 
+
+
 ### Operationen in Numpy
 
 ```python
@@ -519,8 +598,102 @@ print(my_nparray * 2)  # prints [0, 2, 4] --> Multiplication
 # For example:
 shape = np.shape(arr_2d)  # Gives the dimensions as tuple: (2, 3)
 size = np.size(arr_2d)  # Gives the number of elements: 6
- = np.dot(arr_2d, [1, 2, 3])  # Dot product of two arrays: array([8, 26])
+dotproduct = np.dot(arr_2d, [1, 2, 3])  # Dot product of two arrays: array([8, 26])
 ```
+
+
+
+# Image Processing
+
+## Exposition for prettier slides
+
+| Original Image                                               | Exposed Image with transparent background               |
+| ------------------------------------------------------------ | ------------------------------------------------------- |
+| ![](https://linux.pictures/content/1-projects/39-python-card-jpg/python-card.jpg) | ![](./Exercise_ImageProcessing/python_card_exposed.png) |
+
+
+
+### Step by step
+
+- Load image
+    `io.imread('./filename.jpg')`
+
+- Convert to grayscale
+    `np.....`
+
+- Generate empty 4-channel array, same size as input image
+
+    `np.empty([height, width, 4])`
+
+- Set RGB to chosen color
+
+- Inverted alpha to grayscale of input image
+
+- Save output image
+
+
+
+## Discrete 2d-Convolution Filter
+
+Eine diskrete Faltung (en.: convolution) sieht in der Praxis so aus, dass ein Ausschnitt aus der Image Matrix mit einer Kernel Matrix multipliziert und dann aufsummiert wird. Das Ergebnis wird an die entsprechende Stelle in der Output Matrix geschrieben. Dieser Prozess wird für jeden Pixel ausgeführt.
+
+![](https://i.stack.imgur.com/vxEa3.jpg)
+
+```python
+# for image processing we can use these libraries
+import numpy as np  # numeric python
+from skimage import io  # load and save image files
+from scipy import ndimage  # n-dimensional image processing
+
+# different kernels will have a different effect on the image
+'''BLUR
+For a simple blur like the so called 'Box Blur' we calculate the arithmetic mean.
+We weight every pixel the same and normalize so that the sum of the kernel is 1.
+Think about, why the sum of the kernel must be 1.
+'''
+kernel_box_blur = np.array([[1, 1, 1],
+                            [1, 1, 1],
+                            [1, 1, 1]])/9
+
+'''EDGE DETECTION
+For an edge detection the sum of the kernel must be zero.
+This way the value in the output matrix will be zero, wich means black, 
+if there is no difference between the centerpoint and it's surrounding
+pixels.
+'''
+kernel_edge_detection = np.array([[-1, -1, -1],
+                                  [-1, 8, -1],
+                                  [-1, -1, -1]])
+
+'''SHARPEN
+To sharpen an image we use the same principle as for the edge detection.
+The only difference is that we have a sum of 1 caused by a higher weight
+on the centerpoint.
+'''
+kernel_sharpen = np.array([[0, -1, 0],
+                           [-1, 5, -1],
+                           [0, -1, 0]])
+
+# CONVOLUTION
+img_convolved = ndimage.convolve(img, kernel, mode='reflect')
+```
+
+| Original Image                                        | Blurred and edge detection                                   |
+| ----------------------------------------------------- | ------------------------------------------------------------ |
+| ![](./Exercise_ImageProcessing/ubuntu_card_dark.png)￼ | ![](./Exercise_ImageProcessing/ubuntu_card_dark_edgedetection.png) |
+
+Visit [the regarding Wikipedia article](https://en.wikipedia.org/wiki/Kernel_(image_processing)) for more examples.
+
+
+
+## Clipping
+
+Bonus: If background isn't pure black or white, clip and normalize values.
+
+| Without clipping                                             | With clipping                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| ![](./Exercise_ImageProcessing/ubuntu_card_dark_exposed_noclip.png)￼ | ![](./Exercise_ImageProcessing/ubuntu_card_dark_exposed_clip.png) |
+
 
 
 
@@ -530,12 +703,17 @@ size = np.size(arr_2d)  # Gives the number of elements: 6
 - Image Processing
     - Weiterer Filter zur Kantenerkennung: Laplace of Gaussian
         Hier kann mit der Kernelgröße experimentiert werden. 
-        Mit `generic_filter `können auch andere Berechnungen als die Summe implementiert werden, um andere Effekte zu erzielen.
+        Mit `ndimage.generic_filter` aus dem `scipy` Paket können auch andere Berechnungen als Multiplikation und Summe mit einem Kernel implementiert werden, um andere Effekte zu erzielen.
     - Mit dem `argparse` Modul kann ein Commandline Interface erstellt werden.
-        Damit können Ein- und Ausgabepfade sowie Flags (z.B. für Hellen/Dunklen Hintergrund) gesetzt werden.
+        Damit können Ein- und Ausgabepfade sowie Flags (z.B. für hellen/dunklen Hintergrund) gesetzt werden.
         Befehle für die Pfadangaben finden sich in `os.path`.
+
+
 
 ## References
 
 - http://pages.physics.cornell.edu/~myers/teaching/ComputationalMethods/python/anatomyarray.png
 - https://imgs.xkcd.com/comics/python.png
+- https://jakevdp.github.io/blog/2014/05/09/why-python-is-slow/
+- https://linux.pictures/content/1-projects/39-python-card-jpg/python-card.jpg
+- https://i.stack.imgur.com/vxEa3.jpg

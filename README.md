@@ -480,18 +480,9 @@ import matplotlib.pyplot as plt
 
 ### Exercise: Performance Optimization
 
-Sum of multiples of two numbers
+Sum of multiples of two numbers.
 If we list all the natural numbers below 10 that are multiples of 3 or 5
 we get 3, 5, 6 and 9. The sum of these multiples is 23.
-
-Example:
-
-```
-   1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16
-3:       3        6        9       12       15
-4:          4           8          12          16
-gesucht: 3  4     6     8  9       12       15 16
-```
 
 Find the sum of all the multiples of a or b below n.
 When you found your first solution, think again how exactly the described sequence of numbers works.
@@ -514,12 +505,12 @@ if __name__ == '__main__':
     repetitions = 50
     
     # stop time
-    time_simple_approach = timeit.timeit(lambda: solution_simple(a, b, n), 
+    time_solution_simple = timeit.timeit(lambda: solution_simple(a, b, n), 
                                          number=repetitions) / repetitions
-    print("simple approach", time_simple_approach)
+    print("solution_simple", time_solution_simple)
 ```
 
-
+For different solutions to the problem see the file `./Exercise_PerformanceOptimization/performance_optimization.py`.
 
 
 
@@ -542,7 +533,7 @@ NumPy ist ein Python Paket für numerische Operationen und das Kernelement für 
 
 4. **Locality of reference**
     Listen in Python sind Arrays von Pointern. Deshalb sind die Daten einer Python List nicht zwangsläufig hintereinander im Speicher abgelegt. NumPy, sowie C-/Fortran-Arrays dagegen allokieren einen Speicherbereich. Dies ist dadurch überhaupt möglich, dass sie einen statischen Datentyp und eine feste Länge haben. Somit ist der erforderliche Speicherbereich für ein Array in NumPy bekannt und die Daten können zusammenhängend im Speicher abgelegt werden. Durch diese [Räumliche Lokalität](https://en.wikipedia.org/wiki/Locality_of_reference) kann auf die Daten schneller zugegriffen werden, als wenn sie unsortiert verteilt wären.
-    Dieser Effekt lässt sich beobachten, wenn man in NumPy eine 2D-Matrix anlegt und die gleiche Operation einmal auf dessen Zeilen und einmal auf dessen Spalten anwendet. In C werden Arrays spaltenweise im Speicher angelegt und in Fortran zeilenweise. NumPy unterstützt beide Möglichkeiten. Mit dem Programm `./numpy_performance.py` dieses Repositorys kann dieser Performanceunterschied beobachtet werden.
+    Dieser Effekt lässt sich beobachten, wenn man in NumPy eine 2D-Matrix anlegt und die gleiche Operation einmal auf dessen Zeilen und einmal auf dessen Spalten anwendet. In C werden Arrays spaltenweise im Speicher angelegt und in Fortran zeilenweise. NumPy unterstützt beide Möglichkeiten. Mit dem Skript `./Exercise_PerformanceOptimization/numpy_performance.py` kann dieser Performanceunterschied beobachtet werden.
 
     ![](https://jakevdp.github.io/images/array_vs_list.png) 
 

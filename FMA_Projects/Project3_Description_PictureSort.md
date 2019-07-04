@@ -1,4 +1,4 @@
-# Picture-Sort  (2? Punkte)
+# Picture-Sort  (3 Punkte)
 
 ## Kurzbeschreibung
 

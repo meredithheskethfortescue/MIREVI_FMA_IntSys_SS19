@@ -1,4 +1,4 @@
-# Graphen-Visualisierung  (3? Punkte)
+# Graphen-Visualisierung  (4 Punkte)
 
 ## Kurzbeschreibung
 

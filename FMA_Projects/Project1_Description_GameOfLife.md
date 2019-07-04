@@ -1,4 +1,4 @@
-# Conways Game of Life (3? Punkte)
+# Conways Game of Life (4 Punkte)
 
 ## Kurzbeschreibung 
 

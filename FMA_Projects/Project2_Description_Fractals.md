@@ -1,4 +1,4 @@
-# Mandelbrot-Menge (2? Punkte)
+# Mandelbrot-Menge (3 Punkte)
 
 ## Kurzbeschreibung
 

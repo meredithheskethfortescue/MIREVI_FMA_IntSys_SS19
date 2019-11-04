@@ -600,7 +600,7 @@ dotproduct = np.dot(arr_2d, [1, 2, 3])  # Dot product of two arrays: array([8, 2
 
 | Original Image                                               | Exposed Image with transparent background               |
 | ------------------------------------------------------------ | ------------------------------------------------------- |
-| ![](https://linux.pictures/content/1-projects/39-python-card-jpg/python-card.jpg) | ![](./Exercise_ImageProcessing/python_card_exposed.png) |
+| ![](https://raw.githubusercontent.com/LaniJW/linux-pictures/master/cards/classic/python-card.png) | ![](./Exercise_ImageProcessing/python_card_exposed.png) |
 
 
 

@@ -598,9 +598,9 @@ dotproduct = np.dot(arr_2d, [1, 2, 3])  # Dot product of two arrays: array([8, 2
 
 ## Exposition for prettier slides
 
-| Original Image                                               | Exposed Image with transparent background               |
-| ------------------------------------------------------------ | ------------------------------------------------------- |
-| ![](https://raw.githubusercontent.com/LaniJW/linux-pictures/master/cards/classic/python-card.png) | ![](./Exercise_ImageProcessing/python_card_exposed.png) |
+| Original Image                                             | Exposed Image with transparent background               |
+| ---------------------------------------------------------- | ------------------------------------------------------- |
+| ![python_card](./Exercise_ImageProcessing/python_card.jpg) | ![](./Exercise_ImageProcessing/python_card_exposed.png) |
 
 
 

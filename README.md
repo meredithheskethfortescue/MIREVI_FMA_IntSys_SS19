@@ -42,17 +42,18 @@ sudo apt-get install python3.7-dev
 
 ### Most important shortcuts in PyCharm
 
-| Shortcut                 | Effect                                   |
-| ------------------------ | ---------------------------------------- |
-| `Ctrl + P`               | Show possible arguments                  |
-| `Ctrl + Space`           | Autocomplete                             |
-| `Ctrl + Alt + L`         | Apply code conventions                   |
-| `Ctrl + Shift + F10`     | Run current opened script                |
-| `Shift + F10`            | Run script                               |
-| `Ctrl + B`               | Go to declaration/implementation         |
-| `Shift + F6`             | Refactoring                              |
-| `Ctrl + D`               | Insert copy of the line to the next line |
-| `Ctrl + Shift + Up/Down` | Move line upwards/downwards              |
+| Action                                              | Windows                  | Linux                    | Mac           |
+| --------------------------------------------------- | ------------------------ | ------------------------ | ------------- |
+| Parameter information                               | `Ctrl + P`               | `Ctrl + P`               | ⌘ P           |
+| Basic code completion                               | `Ctrl + Space`           | `Ctrl + Space`           | ⌃ Space       |
+| Reformat code (Apply code conventions)              | `Ctrl + Alt + L`         | `Shift + Alt + L`        | ⌥ ⌘ L         |
+| Run context configuration (currently opened script) | `Ctrl + Shift + F10`     | `Ctrl + Shift + F10`     | ⌃ ⌥ R         |
+| Run current configuration                           | `Shift + F10`            | `Shift + F10`            | ⌃ R           |
+| Go to declaration/implementation                    | `Ctrl + B`               | `Ctrl + B`               | ⌘ B           |
+| Rename...                                           | `Shift + F6`             | `Shift + F6`             | ⇧ F6          |
+| Duplicate current line or selection                 | `Ctrl + D`               | `Ctrl + D`               | ⌘ D           |
+| Move line upwards/downwards                         | `Ctrl + Shift + Up/Down` | `Ctrl + Shift + Up/Down` | ⇧ ⌘ ↑ / ⇧ ⌘ ↓ |
+| Expand  / collapse code block                       | `Ctrl + +/-`             | `Ctrl + +/-`             | ⌘ + / ⌘ -     |
 
 
 
